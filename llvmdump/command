@@ -1,0 +1,1 @@
+llvm-objdump -S -no-show-raw-insn sockmap_kern.o
