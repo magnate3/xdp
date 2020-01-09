@@ -1,0 +1,2 @@
+ip link set dev enp7s0f0 xdp obj example.o
+ip link set dev enp7s0f0 xdp off
