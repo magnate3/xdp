@@ -18,3 +18,10 @@ anon_inode_getfile:
     file->private_data = priv;
 struct bpf_prog *____bpf_prog_get(struct fd f)
     return f.file->private_data;
+bpf_prog_select_runtime
+    #ifndef CONFIG_BPF_JIT_ALWAYS_ON
+        fp->bpf_func = (void *) __bpf_prog_run;
+    #else
+        fp->bpf_func = (void *) __bpf_prog_ret0;
+    #endif
+	fp = bpf_int_jit_compile(fp);

@@ -12,11 +12,12 @@ xgbevf_xdp
 ixgbevf_xdp_setup
     old_prog = xchg(&adapter->xdp_prog, prog);
 =================================run========================
-#ifndef CONFIG_BPF_JIT_ALWAYS_ON
-	fp->bpf_func = (void *) __bpf_prog_run;
-#else
-	fp->bpf_func = (void *) __bpf_prog_ret0;
-#endif
+bpf_prog_select_runtime
+    #ifndef CONFIG_BPF_JIT_ALWAYS_ON
+    	fp->bpf_func = (void *) __bpf_prog_run;
+    #else
+    	fp->bpf_func = (void *) __bpf_prog_ret0;
+    #endif
 static __always_inline u32 bpf_prog_run_xdp(const struct bpf_prog *prog,
 					                                            struct xdp_buff *xdp)
 {
