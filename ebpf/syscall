@@ -1,0 +1,7 @@
+int bpf_prog_new_fd(struct bpf_prog *prog)
+{
+对于加载到内核空间的BPF程序，最后会给它分配一个文件句柄fd，将prog存储到对应的file->private_data上
+return anon_inode_getfd("bpf-prog", &bpf_prog_fops, prog, O_RDWR | O_CLOEXEC);
+}
+anon_inode_getfile:
+   file->private_data = priv;
