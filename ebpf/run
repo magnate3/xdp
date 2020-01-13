@@ -12,6 +12,15 @@ xgbevf_xdp
 ixgbevf_xdp_setup
     old_prog = xchg(&adapter->xdp_prog, prog);
 =================================run========================
+__do_softirq() { 
+		net_rx_action() { 
+				ixgbe_poll() { 
+						ixgbe_clean_rx_irq() { 
+								ixgbe_get_rx_buffer(); 
+								ixgbe_run_xdp() { 
+										bpf_prog_run_xdp(); 
+								}
+
 bpf_prog_select_runtime
     #ifndef CONFIG_BPF_JIT_ALWAYS_ON
     	fp->bpf_func = (void *) __bpf_prog_run;
