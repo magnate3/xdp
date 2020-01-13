@@ -1,0 +1,20 @@
+#ifndef CONFIG_BPF_JIT_ALWAYS_ON
+	fp->bpf_func = (void *) __bpf_prog_run;
+#else
+	fp->bpf_func = (void *) __bpf_prog_ret0;
+#endif
+static __always_inline u32 bpf_prog_run_xdp(const struct bpf_prog *prog,
+					                                            struct xdp_buff *xdp)
+{
+		        /* Caller needs to hold rcu_read_lock() (!), otherwise program
+				            * can be released while still running, or map elements could be
+							         * freed early while still having concurrent users. XDP fastpath
+									          * already takes rcu_read_lock() when fetching the program, so
+											           * it's not necessary here anymore.
+													            */
+		        return BPF_PROG_RUN(prog, xdp);
+}
+BPF_PROG_RUN()
+    ret = BPF_PROG_RUN(prog, ctx);
+    #define BPF_PROG_RUN(filter, ctx)  (*filter->bpf_func)(ctx, filter->insnsi)
+
