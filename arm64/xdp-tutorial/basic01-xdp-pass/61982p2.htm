@@ -1,0 +1,337 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<title>Linux/Windows下Zlib的安装与使用  第2页_Linux教程_Linux公社-Linux系统门户网站</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="icon" href="../../favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"/>
+<meta name="description" content="Linux公社(www.linuxidc.com)是专业的Linux系统门户网站，实时发布最新Linux资讯，包括Linux、Ubuntu、Fedora、RedHat、红旗Linux、Linux教程、Linux认证、SUSE Linux、Android、Oracle、Hadoop等技术。"/>
+<meta name="keywords" content="Zlib安装,Linux/Windows下Zlib的安装与使用  第2页,Linux,Linux教程,Linux系统,Linux安装,Ubuntu,Fedora,RedHat,SUSE,CentOS,红旗Linux"/>
+<link rel="canonical" href="http://www.linuxidc.com/Linux/2012-06/61982p2.htm"/>
+<meta name="generator" content="Linux公社"/>
+<meta name="generator" content="Linux"/>
+<link rel="stylesheet" href="../../style/systems/style.css" type="text/css"/>
+<meta name="generator" content="专业的Linux网站"/>
+<script type="text/javascript" src="../../inc/jquery.js"></script>
+<script type="text/javascript" src="../../inc/iwms.js"></script>
+<script type="text/javascript">iwms.urlPrefix="../../";</script>
+
+<script type="text/javascript" src="../../inc/show.js"></script>
+</head>
+<body>
+<div class="topBar">
+	<div class="twidth">
+	
+	<div style="float:right">
+		<script type="text/javascript" src="../../inc/language.js"></script>
+	</div>
+	
+	<div id="topUser">你好，游客 <a href="#" onclick="iwms.logPop()">登录</a>
+	<a href="../../memberreg.aspx" rel="nofollow">注册</a>
+	<a href="../../search.aspx" rel="nofollow">搜索</a>
+	</div>
+	</div>
+</div>
+<div class="twidth">
+<div id="sitehead">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<table width="100%">
+	<tr align="center"><td width="160">
+	<a href="http://www.linuxidc.com/"><img style="filter: chroma(color=#FFFFFF);" src="../../pic/logo.jpg" alt="Linux公社" width="155" height="53" border="0" /></a>
+	</td><td>
+	<div align="center"><script type="text/javascript" src="/linuxfile/linux.js"></script></div>
+	</td>
+	</tr></table>
+</div>
+</div>
+<div id="navbar">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="../../index.htm" class="first">首页</a><a href="../../it/">Linux新闻</a><a href="../../Linuxit/" class="thisclass">Linux教程</a><a href="../../MySql/">数据库技术</a><a href="../../RedLinux/">Linux编程</a><a href="../../Apache/">服务器应用</a><a href="../../Unix/">Linux安全</a><a href="../../download/">Linux下载</a><a href="../../Linuxrz/">Linux认证</a><a href="../../theme/">Linux主题</a><a href="../../Linuxwallpaper/">Linux壁纸</a><a href="../../linuxsoft/">Linux软件</a><a href="../../digi/">数码</a><a href="../../mobile/">手机</a><a href="../../diannao/">电脑</a>
+
+</div>
+</div>
+
+<div id="navsub">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="../../index.htm">首页</a> → <a href="../../Linuxit/">Linux教程</a>
+</div>
+</div>
+<div class="linuxe1"><script type="text/javascript" src="/linuxfile/linuxe1.js"></script></div>
+<div class="linux1"><script type="text/javascript" src="/linuxfile/linux1.js"></script></div>
+<div class="linuxa"><script type="text/javascript" src="/linuxfile/linuxa.js"></script></div>
+<div class="linuxa1"><script type="text/javascript" src="/linuxfile/linuxa1.js"></script></div>
+<table id="middle" width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+<tr valign="top"><td>
+
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<div class="moreR">
+			背景：<script type="text/javascript">WriteBg()</script>
+		</div>
+		<span class="tt">阅读新闻</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm" id="bodyTd">
+		<div id="printBody" style="word-break:break-all;">
+			<div style="text-align:center"><h1 class="aTitle">Linux/Windows下Zlib的安装与使用</h1></div>
+			
+			<table width="97%" align="center">
+				<tr>
+				<td width="140">[日期：2012-06-04]</td>
+				<td align="center">来源：Linux社区&nbsp;
+				作者：Linux</td>
+				<td width="160" align="right">[字体：<a href="javascript:ContentSize(16)">大</a> <a href="javascript:ContentSize(0)">中</a> <a href="javascript:ContentSize(12)">小</a>]
+				</td></tr>
+			</table>
+<div id="li_all">
+<div id="li_1"><script type="text/javascript" src="/linuxfile/linux201.js"></script></div>
+<div id="li_2"><script type="text/javascript" src="/linuxfile/linux2.js"></script></div>
+</div>
+			<div id="content"><P><SPAN style="FONT-SIZE: 18px">二：Windows平台</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">zlib提供了用VC++6.0编译的版本，因此我们首先在Windows下编译zlib的源代码，然后再用上面的例子测试：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">1.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">解压<STRONG><SPAN style="COLOR: #ff0000">zlib-1.2.3-src.zip</SPAN></STRONG>（文末有链接），打开<STRONG><SPAN style="COLOR: #ff0000">zlib.dsw</SPAN></STRONG>，直接编译，提示：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><STRONG><SPAN style="COLOR: #000099">'ml.exe' 不是内部或外部命令，也不是可运行的程序或批处理文件。</SPAN></STRONG><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">2.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">因为ml.exe是微软的汇编编译器，我们不需要，因此：<STRONG><SPAN style="COLOR: #ff0000">Build--&gt;Set Active Project Configuration，将所有的带"ASM"的项都去掉，然后选择Win32 LIB Debug</SPAN></STRONG>，如下图：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><IMG alt="" src="../../upload/2012_06/120604100323651.png"><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">3.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">在<STRONG><SPAN style="COLOR: #ff0000">zlib classes上右键选择设为启动项目</SPAN></STRONG>，然后再编译，出现如下错误：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><STRONG><SPAN style="COLOR: #000099">fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory&nbsp;compress.c</SPAN></STRONG><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">unistd.h是Linux下的文件，我们不需要，<STRONG><SPAN style="COLOR: #ff0000">只要将#if 1 改为#if 0即可</SPAN></STRONG>，如下图所示：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><IMG alt="" src="../../upload/2012_06/120604100323652.png"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">4.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">再编译，发现出现如下4个错误：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px; COLOR: #000099"><STRONG>error C2059: syntax error : 'bad suffix on number'<BR></STRONG></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><STRONG><SPAN style="COLOR: #000099">error C2146: syntax error : missing ')' before identifier 'L'<BR>error C2198: 'gzseek' : too few actual parameters<BR>error C2059: syntax error : ')'</SPAN></STRONG><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">没关系，<STRONG><SPAN style="COLOR: #000099">将0LL改为0L即可（即去掉一个L）</SPAN></STRONG>，如下图：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><IMG alt="" src="../../upload/2012_06/120604100323653.png"><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">5.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">再编译，没有错误，如下图：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><IMG alt="" src="../../upload/2012_06/120604100323654.png"><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">6.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">zlib编译好后，会<STRONG><SPAN style="COLOR: #ff0000">生成zlib1.lib和zlib1.dll两个文件</SPAN></STRONG>，这正是我们需要的。</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">下面还是用之前的测试程序：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><STRONG><SPAN style="COLOR: #ff0000">新建一个VC++6工程，加入如下的代码，并将zlib1.dll拷贝到项目目录下</SPAN></STRONG>：</SPAN></P>
+<DIV class="dp-highlighter bg_cpp">
+<OL class=dp-cpp>
+<LI class=alt><SPAN><SPAN class=preprocessor><FONT color=#808080>#include&nbsp;&lt;stdio.h&gt; </FONT></SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN></SPAN><SPAN class=preprocessor><FONT color=#808080>#include&nbsp;"../zlib/include/zlib.h" </FONT></SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=alt><SPAN></SPAN><SPAN class=preprocessor><FONT color=#808080>#pragma&nbsp;comment(lib,&nbsp;"../zlib/lib/zlib1.lib") </FONT></SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN></SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>int</FONT></STRONG></SPAN><SPAN>&nbsp;main()&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>{&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;</SPAN><SPAN class=comment><FONT color=#008200>/*&nbsp;原始数据&nbsp;*/</FONT></SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;unsigned&nbsp;</SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>char</FONT></STRONG></SPAN><SPAN>&nbsp;strSrc[]&nbsp;=&nbsp;</SPAN><SPAN class=string><FONT color=#0000ff>"hello&nbsp;world!&nbsp;aaaaa&nbsp;bbbbb&nbsp;ccccc&nbsp;ddddd&nbsp;中文测试&nbsp;yes"</FONT></SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;unsigned&nbsp;</SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>char</FONT></STRONG></SPAN><SPAN>&nbsp;buf[1024]&nbsp;=&nbsp;{0};&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;unsigned&nbsp;</SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>char</FONT></STRONG></SPAN><SPAN>&nbsp;strDst[1024]&nbsp;=&nbsp;{0};&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;unsigned&nbsp;</SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>long</FONT></STRONG></SPAN><SPAN>&nbsp;srcLen&nbsp;=&nbsp;</SPAN><SPAN class=keyword><STRONG><FONT color=#006699>sizeof</FONT></STRONG></SPAN><SPAN>(strSrc);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;unsigned&nbsp;</SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>long</FONT></STRONG></SPAN><SPAN>&nbsp;bufLen&nbsp;=&nbsp;</SPAN><SPAN class=keyword><STRONG><FONT color=#006699>sizeof</FONT></STRONG></SPAN><SPAN>(buf);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;unsigned&nbsp;</SPAN><SPAN class=datatypes><STRONG><FONT color=#2e8b57>long</FONT></STRONG></SPAN><SPAN>&nbsp;dstLen&nbsp;=&nbsp;</SPAN><SPAN class=keyword><STRONG><FONT color=#006699>sizeof</FONT></STRONG></SPAN><SPAN>(strDst);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;printf(</SPAN><SPAN class=string><FONT color=#0000ff>"Src&nbsp;string:%s\nLength:%ld\n"</FONT></SPAN><SPAN>,&nbsp;strSrc,&nbsp;srcLen);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;</SPAN><SPAN class=comment><FONT color=#008200>/*&nbsp;压缩&nbsp;*/</FONT></SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;compress(buf,&nbsp;&amp;bufLen,&nbsp;strSrc,&nbsp;srcLen);&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;printf(</SPAN><SPAN class=string><FONT color=#0000ff>"After&nbsp;Compressed&nbsp;Length:%ld\n"</FONT></SPAN><SPAN>,&nbsp;bufLen);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;</SPAN><SPAN class=comment><FONT color=#008200>/*&nbsp;解压缩&nbsp;*/</FONT></SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;uncompress(strDst,&nbsp;&amp;dstLen,&nbsp;buf,&nbsp;bufLen);&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;printf(</SPAN><SPAN class=string><FONT color=#0000ff>"After&nbsp;UnCompressed&nbsp;Length:%ld\n"</FONT></SPAN><SPAN>,dstLen);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;printf(</SPAN><SPAN class=string><FONT color=#0000ff>"UnCompressed&nbsp;String:%s\n"</FONT></SPAN><SPAN>,strDst);&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+<LI class=alt><SPAN>&nbsp;&nbsp;</SPAN><SPAN class=keyword><STRONG><FONT color=#006699>return</FONT></STRONG></SPAN><SPAN>&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+<LI class=""><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><BR>
+<P></P>
+<P><SPAN style="FONT-SIZE: 18px">和之前的程序类似，只多了<STRONG><SPAN style="COLOR: #ff0000">#pragma comment，这里需要填入zlib1.lib的正确路径</SPAN></STRONG></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">然后运行，一切正常，如下图：</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"><IMG alt="" src="../../upload/2012_06/120604100323655.png"><BR></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px; COLOR: #ff0000"><STRONG>呵呵，我们发现同样的字符串在Linux和Windows上长度是不一样的！</STRONG></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">另外还要说的是我们编译的VC++6.0版的zlib工程中包含一个example示例程序，可以参考参考。</SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px"></SPAN></P>
+<P><SPAN style="FONT-SIZE: 18px">为了方便大家，本文的所有源码都可以下载：</SPAN></P>
+<P><STRONG>免费下载地址在</STRONG> <A title="" href="http://linux.linuxidc.com/" target=_blank>http://linux.linuxidc.com/</A></P>
+<P><STRONG>用户名与密码都是</STRONG><A href="">www.linuxidc.com</A></P>
+<P><STRONG>具体下载目录在</STRONG> /2012年资料/6月/4日/Linux&amp;Windows下Zlib的安装与使用/</P><a href="http://www.linuxidc.com" target="_blank"><img src="/linuxfile/logo.gif" alt="linux" width="15" height="17" /></div>
+<div class="linux3"><script type="text/javascript" src="/linuxfile/linux3.js"></script></div>
+<div class="linux302"><script type="text/javascript" src="/linuxfile/linux302.js"></script></div>		
+			<table align="center"><tr><td><div class="pager"><ul><li><a href="../../Linux/2012-06/61982.htm" title="上一页">上一页</a></li><li><a href="../../Linux/2012-06/61982.htm">1</a></li><li class="p_current">2</li><li><a href="../../Linux/2012-06/61982p3.htm">3</a></li><li><a href="../../Linux/2012-06/61982p3.htm" title="下一页">下一页</a></li><li><div><input type="text" value="3" onkeydown="pager.Jump(event,this)"/></div><script type="text/javascript" src="../../inc/pager.js"></script><script type="text/javascript">var pager=new iwmsPager(2,3,true);</script></li></ul></div></td></tr></table>
+			
+		</div>
+<div class="linuxfx"><script type="text/javascript" src="/linuxfile/fx.js"></script></div>	
+<div class="linux8"><script type="text/javascript" src="/linuxfile/linux8.js"></script></div>
+<div class="linux801"><script type="text/javascript" src="/linuxfile/linux801.js"></script></div>
+		<div class="nearNews">
+			<div class="prevNews"><a href="../../Linux/2012-06/61981.htm">Ubuntu下搭建Ruby On Rails</a></div>
+			<div class="nextNews"><a href="../../Linux/2012-06/61983.htm">grub error: unknown filesystem的解决办法</a></div>
+		</div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+<div class="linux809"><script type="text/javascript" src="/linuxfile/linux809.js"></script></div>
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">相关资讯</span> &nbsp; &nbsp; &nbsp;
+		<a href="../../search.aspx?where=nkey&amp;keyword=11260" target="_blank">Zlib安装</a>&nbsp; 
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<ul class="nl">
+<li><a href="../../Linux/2008-09/15763.htm"  target="_blank"  title="Ubuntu下安装Zlib(附Zlib1.2.3本地下载)">Ubuntu下安装Zlib(附Zlib1.2.3本地</a>&nbsp; <span class="gray">(09/15/2008 21:05:22)</span></li>
+</ul>
+
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+<div class="linux808"><script type="text/javascript" src="/linuxfile/linux808.js"></script></div>
+	
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">本文评论</span>
+		 	　　<a href="../../remark.aspx?id=61982" target="_blank">查看全部评论</a> <span class="gray">(0)</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width="100%" style="margin:6px">		
+		<tr><td width="50%">
+			<form action="" name="fmRemarkSt" onsubmit="return remark.post(this);">
+			<input type="hidden" value="1" name="face"/>
+			表情： <img src="../../pic/b.gif" alt="表情" class="face1" style="cursor:pointer;vertical-align:middle" onclick="remark.dispFace(this)" onmouseout="remark.hideFace()"/>
+			姓名： <input type="text" name="username" value="" maxlength="15" style="width:60px" class="inputbg"/>
+			<input type="checkbox" id="rmAnonymitySt" onclick="remark.anony(this)"/><label for="rmAnonymitySt">匿名</label>
+			字数 <input type="text" id="bodyLen" size="3" readonly="readonly" style="border-width:0;background:transparent;vertical-align:middle" value="0"/>
+			<br/>
+			<textarea name="body" cols="40" rows="4" onkeydown="remark.dispLen(this)" onkeyup="remark.handle(event,this);remark.dispLen(this)" style="width:39em;height:100px;margin:3px 0;overflow-y:auto"></textarea>
+				<br/>
+		　　　<input type="checkbox" checked="checked" id="rmAgreeSt"/><label for="rmAgreeSt">同意评论声明</label>
+		　　　<button type="submit" style="width:50px">发表</button>
+			</form><br>
+			评论声明
+			<ul style="list-style-type:square;margin:5px 0 0 1em;padding:0">
+			<li>尊重网上道德，遵守中华人民共和国的各项有关法律法规</li>
+			<li>承担一切因您的行为而直接或间接导致的民事或刑事法律责任</li>
+			<li>本站管理人员有权保留或删除其管辖留言中的任意内容</li>
+			<li>本站有权在网站内转载或引用您的评论</li>
+			<li>参与本评论即表明您已经阅读并接受上述条款</li>
+			</ul>
+		</td>
+		<td width="50%"><div class="linux799"><script type="text/javascript" src="/linuxfile/linux799.js"></script></div></td></tr>
+		</table>
+		<script type="text/javascript" src="../../inc/remark.js"></script>
+		<script type="text/javascript">
+			remark.maxSize=500;
+			remark.minSize=2;
+			remark.sourceEle=$(document.fmRemarkSt).find("button").get(0);
+			iwms.vCode="D2BDA41E";
+			iwms.user.name.length==0 ? $i("rmAnonymitySt").click() : $i("rmAnonymitySt").form.username.value=iwms.user.name;
+		</script>
+		<div class="reCont" id="reContainer"></div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	
+</td><td width="300" valign="top">
+<div class="linux901"><script type="text/javascript" src="/linuxfile/linux901.js"></script></div>
+<div class="linux902"><script type="text/javascript" src="/linuxfile/linux902.js"></script></div>
+<div class="linux903"><script type="text/javascript" src="/linuxfile/linux903.js"></script></div>
+<div class="linux905"><script type="text/javascript" src="/linuxfile/linux905.js"></script></div>
+	
+	<div class="lframe">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">最新资讯</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<ul class="nl">
+<li><a href="../../Linux/2016-08/134461.htm" target="_blank">Nagios 监控 SNMP 温度计</a></li>
+<li><a href="../../Linux/2016-08/134460.htm" target="_blank">JavaScript函数定义与函数作用域详解</a></li>
+<li><a href="../../Linux/2016-08/134459.htm" target="_blank">Java培训：对象和类</a></li>
+<li><a href="../../Linux/2016-08/134458.htm" target="_blank">Java培训：基本数据类型</a></li>
+<li><a href="../../Linux/2016-08/134457.htm" target="_blank">Java培训：变量类型</a></li>
+<li><a href="../../Linux/2016-08/134456.htm" target="_blank">Java培训：增强for循环、switch</a></li>
+<li><a href="../../Linux/2016-08/134455.htm" target="_blank">Java培训：Number类、Character类</a></li>
+<li><a href="../../Linux/2016-08/134454.htm" target="_blank">Python 操作消息队列</a></li>
+<li><a href="../../Linux/2016-08/134453.htm" target="_blank">Python迭代器和生成器</a></li>
+<li><a href="../../Linux/2016-08/134452.htm" target="_blank">Spark源码分析之SparkContext概述</a></li>
+</ul>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	<div class="u70"><script type="text/javascript" src="/linuxfile/u70.js"></script></div>
+	<div class="u80"><script type="text/javascript" src="/linuxfile/u80.js"></script></div>
+	<div class="u90"><script type="text/javascript" src="/linuxfile/u90.js"></script></div>
+	<div class="space"></div>
+	<div id="pin">
+	<script type="text/javascript" src="/linuxfile/pin.js"></script>
+	</div>
+</td></tr>
+</table>
+<div class="linux906"><script type="text/javascript" src="/linuxfile/linux906.js"></script></div>
+<div id="footer">
+<a href="http://www.linuxidc.com/aboutus.htm">Linux公社简介</a> - <a href="http://www.linuxidc.com/adsense.htm">广告服务</a> - <a href="http://www.linuxidc.com/sitemap.aspx">网站地图</a> - <a href="http://www.linuxidc.com/help.htm">帮助信息</a> - <a href="http://www.linuxidc.com/contactus.htm">联系我们</a><br />本站（LinuxIDC）所刊载文章不代表同意其说法或描述，仅为提供更多信息，也不构成任何建议。<br /><script type="text/javascript" src="/linuxfile/qq.js"></script><br />
+<script type="text/javascript" src="/linuxfile/foot.js"></script><br />Copyright &copy; 2006-2016　<a href="http://www.linuxidc.com/">Linux公社</a>　All rights reserved 沪ICP备15008072号-1号
+	<script type="text/javascript">iwms.aId=61982;$(function(){iwms.imgCont=$i('content');iwms.imgResize();InitContStyle();iwms.getVars();})</script>
+	
+</div>
+</div>
+<script type="text/javascript" src="/linuxren/linuxren1.js"></script>
+<script type="text/javascript" src="/linuxren/linuxren2.js"></script>
+<script type="text/javascript" src="/linuxren/linuxren3.js"></script>
+</body>
+</html>
