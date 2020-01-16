@@ -1,1 +1,15 @@
 llvm-objdump -S -no-show-raw-insn sockmap_kern.o
+clang -O3 -emit-llvm hello.c -c -o hello.bc
+llvm-dis < test.bc | less
+llvm-dis < hello.bc | less
+clang -O3 -emit-llvm hello.c -S -o hello.ll
+llvm-dis < hello.ll | less
+llvm-dis < hello.bc | less
+llvm-objdump -h example.o
+llvm-readelf -sections example.o
+llvm-readelf -sections sockmap_kern.o
+llvm-readelf -sections sockmap_user.o
+llvm-objdump -S -no-show-raw-insn sockmap_kern.o
+llvm-objdump -S -no-show-raw-insn sockmap_kern.o
+objdump -h sock_example
+objdump -T sock_example
