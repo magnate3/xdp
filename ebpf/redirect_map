@@ -1,0 +1,5 @@
+static int (*bpf_sk_redirect_map)(void *ctx, void *map, int key, int flags) =
+        (void *) BPF_FUNC_sk_redirect_map;
+recv_sock -> str_parser (parse_prog) -> verdict_prog -> skb_send_sock
+                                                     \
+																												-> kfree_skb

@@ -1,0 +1,12 @@
+load_elf_maps_section
+    load_maps
+	    bpf_create_map_node
+			sys_bpf(BPF_MAP_CREATE, &attr, sizeof(attr));
+bpf_prog_load -->  bpf_check
+bpf_check
+	replace_map_fd_with_map_ptr(env); //将文件描述符替换成map指针地址
+replace_map_fd_with_map_ptr
+    struct bpf_insn *insn = env->prog->insnsi;
+	map = __bpf_map_get(f);  // from file private_data
+	insn[0].imm = (u32) (unsigned long) map;
+	insn[1].imm = ((u64) (unsigned long) map) >> 32;

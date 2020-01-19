@@ -1,6 +1,8 @@
 bpf_prog_load
    prog = bpf_prog_alloc(bpf_prog_size(attr->insn_cnt), GFP_USER);
    copy_from_user(prog->insns, u64_to_ptr(attr->insns),prog->len * sizeof(struct bpf_insn))
+    /* run eBPF verifier */
+   err = bpf_check(&prog, attr);
    err = bpf_prog_select_runtime(prog);
    err = bpf_prog_new_fd(prog);
 bpf_prog_alloc
