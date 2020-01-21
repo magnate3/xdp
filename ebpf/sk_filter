@@ -1,0 +1,116 @@
+ sk_attach_filter()和sk_run_filter()：前者将 filter 伪代码由用户空间复制进内核空间；后者则负责在报文到来时执行伪码解析
+ BPF JIT 的接口还是简单清晰的：各平台的 JIT 编译函数都实现于bpf_jit_compile()之中(3.16 之后，开始逐步改为bpf_int_jit_compile())，如果 CONFIG_BPF_JIT 被打开，则传入的 BPF 伪代码就会被传入该函数加以编译，编译结果被拿来替换掉默认的处理函数 sk_run_filter()
+ sock_setsockopt
+      case SO_ATTACH_BPF:
+          ret = -EINVAL;
+          if (optlen == sizeof(u32)) {
+              u32 ufd;
+  
+              ret = -EFAULT;
+              if (copy_from_user(&ufd, optval, sizeof(ufd)))
+                  break;
+  
+              ret = sk_attach_bpf(ufd, sk);
+          }
+          break;
+ 
+int sk_attach_bpf(u32 ufd, struct sock *sk)
+ {
+     struct bpf_prog *prog = __get_bpf(ufd, sk);
+     int err;
+ 
+     if (IS_ERR(prog))
+         return PTR_ERR(prog);
+ 
+     err = __sk_attach_prog(prog, sk);
+     if (err < 0) {
+         bpf_prog_put(prog);
+         return err;
+     }
+ 
+     return 0;
+ }
+ static int __sk_attach_prog(struct bpf_prog *prog, struct sock *sk)
+ {
+     struct sk_filter *fp, *old_fp;
+ 
+     fp = kmalloc(sizeof(*fp), GFP_KERNEL);
+     if (!fp)
+         return -ENOMEM;
+ 
+     fp->prog = prog;
+ 
+     if (!__sk_filter_charge(sk, fp)) {
+         kfree(fp);
+         return -ENOMEM;
+     }
+     refcount_set(&fp->refcnt, 1);
+ 
+     old_fp = rcu_dereference_protected(sk->sk_filter,
+                        lockdep_sock_is_held(sk));
+     rcu_assign_pointer(sk->sk_filter, fp);
+ 
+     if (old_fp)
+         sk_filter_uncharge(sk, old_fp);
+ 
+     return 0;
+ }
+ static bool __sk_filter_charge(struct sock *sk, struct sk_filter *fp)
+ {
+     u32 filter_size = bpf_prog_size(fp->prog->len);
+ 
+     /* same check as in sock_kmalloc() */
+     if (filter_size <= sysctl_optmem_max &&
+         atomic_read(&sk->sk_omem_alloc) + filter_size < sysctl_optmem_max) {
+         atomic_add(filter_size, &sk->sk_omem_alloc);
+         return true;
+     }
+     return false;
+ }
+sk_run_filter（）是BPF过滤机器的实现
+static inline int sk_filter(struct sock *sk, struct sk_buff *skb, int needlock)
+{
+	int err;
+	
+	err = security_sock_rcv_skb(sk, skb);
+	if (err)
+		return err;
+	
+	if (sk->sk_filter) {
+		struct sk_filter *filter;
+		
+		if (needlock)
+			bh_lock_sock(sk);
+		
+		filter = sk->sk_filter;
+		if (filter) {
+			unsigned int pkt_len = sk_run_filter(skb, filter->insns,
+							     filter->len);
+			err = pkt_len ? pskb_trim(skb, pkt_len) : -EPERM;
+		}
+
+		if (needlock)
+			bh_unlock_sock(sk);
+	}
+	return err;
+}
+static u32 seccomp_run_filters(int syscall)
+{
+        struct seccomp_filter *f;
+        u32 ret = SECCOMP_RET_ALLOW;
+
+        /* Ensure unexpected behavior doesn't result in failing open. */
+        if (WARN_ON(current->seccomp.filter == NULL))
+                return SECCOMP_RET_KILL;
+
+        /*
+         * All filters in the list are evaluated and the lowest BPF return
+         * value always takes priority (ignoring the DATA).
+         */
+        for (f = current->seccomp.filter; f; f = f->prev) {
+                u32 cur_ret = sk_run_filter(NULL, f->insns);
+                if ((cur_ret & SECCOMP_RET_ACTION) < (ret & SECCOMP_RET_ACTION))
+                        ret = cur_ret;
+        }
+        return ret;
+}
