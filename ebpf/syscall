@@ -27,3 +27,21 @@ bpf_prog_select_runtime
         fp->bpf_func = (void *) __bpf_prog_ret0;
     #endif
 	fp = bpf_int_jit_compile(fp);
+
+
+====================================================
+bpf_load_program_xattr
+    sys_bpf_prog_load
+	   	sys_bpf(BPF_PROG_LOAD, attr, size);
+			bpf_prog_load
+syscall(__NR_bpf, BPF_PROG_LOAD, &attr, sizeof(attr));
+with of course, the corresponding bpf_attr structure being filled before :
+union bpf_attr attr = {
+			.prog_type = prog_type, /* kprobe filter? socket filter? */  
+			.insns = ptr_to_u64((void *) insns), /* complete bpf instructions */
+			.insn_cnt = prog_len / sizeof(struct bpf_insn), /* how many? */
+			.license = ptr_to_u64((void *) license), /* GPL maybe */
+			.log_buf = ptr_to_u64(bpf_log_buf), /* log buffer */
+			.log_size = LOG_BUF_SIZE,
+			.log_level = 1,
+};

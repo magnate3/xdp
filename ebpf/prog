@@ -18,4 +18,21 @@ struct bpf_prog {
 		struct bpf_insn		insnsi[0]; //maps
 	};
 };
- 
+int load_bpf_file(char *path)
+{
+	    return do_load_bpf_file(path, NULL);
+}
+
+int load_bpf_file_fixup_map(const char *path, fixup_map_cb fixup_map)
+{
+		    return do_load_bpf_file(path, fixup_map);
+}
+do_load_bpf_file
+   ret = load_and_attach(shname, data->d_buf,data->d_size);
+load_and_attach  parses prog section and maps prog
+load_and_attach(const char *event, struct bpf_insn *prog, int size)
+   	load_elf_maps_section
+	    load_maps
+			bpf_create_map_node
+     fd = bpf_load_program(prog_type, prog, insns_cnt, license, kern_version, bpf_log_buf, BPF_LOG_BUF_SIZE);
+    
